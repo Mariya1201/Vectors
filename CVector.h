@@ -20,6 +20,7 @@ public:
     double operator[](int i); // Оператор [], чтобы обращаться к элементам вектора, как к элементам массива
 
     CVector operator+(const CVector&); 
+    CVector operator=(const CVector&);
     CVector operator-(const CVector&); 
     double operator*(const CVector&); 
 

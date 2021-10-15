@@ -9,6 +9,13 @@ CVector::CVector() {
    
 }
 
+CVector::CVector(const CVector& v) {
+        for (int i = 0; i < CVector.index; i++) {
+            CVector.vect[i] = v.vect[i];
+        }
+       
+}
+
 CVector::~CVector() {
     // delete[] vect;
     vect = nullptr;
@@ -68,6 +75,24 @@ CVector CVector::operator+(const CVector& v) {
     }
 }
 
+CVector CVector::operator=(const CVector& v) {
+    CVector newVector;
+
+    if (index == v.index) {
+        for (int i = 0; i < index; i++) {
+            newVector.vect[i]= v.vect[i];
+        }
+        return newVector;
+    }
+
+    else
+    {
+        cout << "Vectors have different size\n";
+
+        exit(0);
+
+    }
+}
 // Разность векторов /Перегрузка -/
 CVector CVector::operator-(const CVector& v) {
     CVector newVector;
