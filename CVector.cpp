@@ -75,7 +75,7 @@ CVector CVector::operator+(const CVector& v) {
     }
 }
 
-CVector CVector::operator=(const CVector& v) {
+CVector& CVector::operator=(const CVector& v) {
     CVector newVector;
 
     if (index == v.index) {
