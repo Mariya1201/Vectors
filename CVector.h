@@ -10,6 +10,7 @@ private:
 
 public:
 
+    CVector(const CVector&);
     CVector(); 
     ~CVector();
 

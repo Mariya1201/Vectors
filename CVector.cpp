@@ -10,14 +10,16 @@ CVector::CVector() {
 }
 
 CVector::CVector(const CVector& v) {
-        for (int i = 0; i < CVector.index; i++) {
-            CVector.vect[i] = v.vect[i];
+        vect = new double[v.index];
+        for (int i = 0; i < v.index; i++) {
+            vect[i] = v.vect[i];
         }
-       
+        index = v.index;
+        vectSize = v.vectSize;
 }
 
 CVector::~CVector() {
-    // delete[] vect;
+     delete[] vect;
     vect = nullptr;
 }
 
@@ -57,9 +59,9 @@ double CVector::operator[](int i) {
 
 
 CVector CVector::operator+(const CVector& v) {
-    CVector newVector;
-
+    
     if (index == v.index) {
+        CVector newVector;
         for (int i = 0; i < index; i++) {
             newVector.add(get(i) + v.vect[i]);
         }
@@ -76,28 +78,22 @@ CVector CVector::operator+(const CVector& v) {
 }
 
 CVector& CVector::operator=(const CVector& v) {
-    CVector newVector;
-
-    if (index == v.index) {
-        for (int i = 0; i < index; i++) {
-            newVector.vect[i]= v.vect[i];
-        }
-        return newVector;
+    delete[] vect;
+    vect = new double[v.index];
+    for (int i = 0; i < index; i++) {
+        vect[i] = v.vect[i];
     }
+    index = v.index;
+    vectSize = v.vectSize;
 
-    else
-    {
-        cout << "Vectors have different size\n";
-
-        exit(0);
-
-    }
+    return *this;
 }
+
 // Разность векторов /Перегрузка -/
 CVector CVector::operator-(const CVector& v) {
-    CVector newVector;
-
+    
     if (index == v.index) {
+        CVector newVector;
         for (int i = 0; i < index; i++) {
             newVector.add(get(i) - v.vect[i]);
         }

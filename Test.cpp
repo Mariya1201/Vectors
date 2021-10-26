@@ -7,14 +7,14 @@
 int autotest1() {
     CVector v1, v2;
 
-    v1.add(1);
-    v1.add(2);
+    v1.add(1.0);
+    v1.add(2.0);
    
-    v2.add(7);
-    v2.add(6);
-    
+    v2.add(7.0);
+    v2.add(6.0);
+   
     CVector sum = v1 + v2;
-
+ 
     if (sum[0] == 8 && sum[1] == 8) {
      return 0; 
     }
